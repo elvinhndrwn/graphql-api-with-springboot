@@ -1,0 +1,35 @@
+type Customer {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    phoneNumber: String!
+    address: String!
+    city: String!
+    state: String!
+    zipCode: String!
+}
+
+type Query {
+    customers: [Customer]!
+    customerById(id: ID): Customer
+    customerByEmail(email: String): Customer
+}
+
+# dto
+input CustomerInput {
+    firstName: String!
+    lastName: String!
+    email: String!
+    phoneNumber: String!
+    address: String!
+    city: String!
+    state: String!
+    zipCode: String!
+}
+
+type Mutation{
+    deleteCustomerById(id: ID) : Customer
+    addCustomer(input: CustomerInput) : Customer
+}
+
